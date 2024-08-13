@@ -11,4 +11,3 @@ import fr.afrogeek.geekhrconnect.entity.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee , UUID>{
 
 }
- 

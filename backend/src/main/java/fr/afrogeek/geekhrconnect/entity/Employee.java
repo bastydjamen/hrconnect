@@ -41,7 +41,7 @@ private UUID id;
 private Gender gender;
 
 @Column(nullable = false)
-private String firtsname;
+private String firstname;
 
 @Column(nullable = false)
 private String lastname;
@@ -81,7 +81,7 @@ public EmployeeResponse toResponse(){
         EmployeeResponse employeeResponse = EmployeeResponse.builder()
                                             .id(this.id)
                                             .gender(this.gender)
-                                            .firstName(this.firtsname)
+                                            .firstName(this.firstname)
                                             .lastName(this.lastname)
                                             .email(this.email)
                                             .phone(this.phone)
@@ -96,7 +96,7 @@ public EmployeeResponse toResponse(){
 
         if(this.superior!= null){
             String gender = this.superior.gender==Gender.men?"Mr. ":"Mlle ";
-            String superiorName = gender + this.superior.lastname + " "+ this.superior.firtsname;
+            String superiorName = gender + this.superior.lastname + " "+ this.superior.firstname;
             employeeResponse.setSuperiorName(superiorName);
             employeeResponse.setSuperiorId(this.superior.getId());
         }

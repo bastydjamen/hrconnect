@@ -3,6 +3,8 @@ package fr.afrogeek.geekhrconnect.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.afrogeek.geekhrconnect.dto.EmployeeRequest;
+import fr.afrogeek.geekhrconnect.dto.EmployeeResponse;
 import fr.afrogeek.geekhrconnect.entity.Employee;
 import fr.afrogeek.geekhrconnect.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -23,34 +25,31 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RequiredArgsConstructor
 public class EmployeeController {
 
-    private final EmployeeService employeeService;
-
-    @PostMapping
-    public Employee creatEmployee(@RequestBody Employee employee) {
-
-        return employeeService.cretaEmployee(employee);
-    }
+     private final EmployeeService employeeService;
 
     @GetMapping
-    public List<Employee> getAllEmployee() {
+    public List<EmployeeResponse> getAllEmployee(){
         return employeeService.getAllEmployee();
     }
 
-    @GetMapping("/{id}")
-    public Employee getEmployeeById(@PathVariable UUID id) {
-        return employeeService.getEmployeeById(id);
+    @PostMapping
+    public EmployeeResponse createEmployee(@RequestBody EmployeeRequest employeeRequest) {
+        return employeeService.createEmployee(employeeRequest);
     }
 
     @PutMapping("/{id}")
-    public Employee updateEmployee(@PathVariable UUID id, @RequestBody Employee employee) {
-      
-        
-        return employeeService.updateEmployee(id, employee);
+    public EmployeeResponse updateEmployee(@PathVariable UUID id, @RequestBody EmployeeRequest employeeRequest) {
+        return employeeService.updateEmployee(id, employeeRequest);
+    }
+
+    @GetMapping("/{id}")
+    public EmployeeResponse getEmployeeById(@PathVariable UUID id) {
+        return employeeService.getEmployeeResponseById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteEmployeeById(@PathVariable UUID id){
-          employeeService.deleteEmployeeById(id);
+    public void deleteEmployeeById(@PathVariable UUID id) {
+        employeeService.deleteEmployeeById(id);
     }
-
+    
 }

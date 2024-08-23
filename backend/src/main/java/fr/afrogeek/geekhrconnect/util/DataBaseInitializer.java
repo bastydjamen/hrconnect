@@ -11,7 +11,7 @@ import fr.afrogeek.geekhrconnect.enums.Position;
 import fr.afrogeek.geekhrconnect.repository.EmployeeRepository;
 
 public class DataBaseInitializer  implements CommandLineRunner{
-    private final EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository = null;
     
     
     @Override

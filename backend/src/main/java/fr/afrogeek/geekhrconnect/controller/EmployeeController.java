@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.afrogeek.geekhrconnect.dto.EmployeeRequest;
 import fr.afrogeek.geekhrconnect.dto.EmployeeResponse;
-import fr.afrogeek.geekhrconnect.entity.Employee;
+
 import fr.afrogeek.geekhrconnect.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 

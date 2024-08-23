@@ -30,7 +30,7 @@ public class EmployeeService {
         Employee employeeToUpdate = getEmployeeById(id);
         
         employeeToUpdate.setGender(employeeRequest.getGender());
-        employeeToUpdate.setFirtsname(employeeRequest.getFirstName());
+        employeeToUpdate.setFirstname(employeeRequest.getFirstName());
         employeeToUpdate.setLastname(employeeRequest.getLastName());
         employeeToUpdate.setEmail(employeeRequest.getEmail());
         employeeToUpdate.setPhone(employeeRequest.getPhone());
@@ -53,7 +53,8 @@ public class EmployeeService {
     }
 
     public void deleteEmployeeById(UUID id) {
-        employeeRepository.deleteById(id);
+        Employee employee = getEmployeeById(id);
+        employeeRepository.delete(employee);
     }
 
     private Employee getEmployeeById(UUID id) {
@@ -74,7 +75,7 @@ public class EmployeeService {
         Employee superior = this.getSuperiorById(employeeRequest.getSuperiorId());
         return Employee.builder()
                 .gender(employeeRequest.getGender())
-                .firtsname(employeeRequest.getFirstName())
+                .firstname(employeeRequest.getFirstName())
                 .lastname(employeeRequest.getLastName())
                 .email(employeeRequest.getEmail())
                 .phone(employeeRequest.getPhone())
